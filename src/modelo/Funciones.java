@@ -1,6 +1,7 @@
 package modelo;
 import java.time.LocalDate;
 public class Funciones {
+	
 	public static boolean esDiaHabil(LocalDate fecha) {
 		int d = fecha.getDayOfWeek().getValue();
 		return ((d>=1)&&(d<=5));
