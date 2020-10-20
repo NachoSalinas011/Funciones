@@ -17,7 +17,7 @@ public class Funciones {
 		return((double)n);
 	}
 	public static boolean esBisiesto(int anio) {
-		if((anio%4 == 0) && (anio%100 != 0) && (anio%400 != 0))
+		if((anio%4 == 0) && ((anio%100 != 0) || (anio%400 == 0)))
 		{
 			return true;
 		}else
@@ -186,24 +186,7 @@ public class Funciones {
 		return cantDias;
 	}
 	public static double aproximar2Decimal(double valor) {
-		String cadenaValor = String.valueOf(valor);
-		char[] caracteresValor = cadenaValor.toCharArray();
-		int posPunto = 0, cont = 0;
-		for(char e : caracteresValor)
-		{
-			cont++;
-			if(e == '.')
-			{
-				posPunto= cont-1;
-			}
-		}
-		if(caracteresValor[posPunto+3] >= '5')
-		{
-			caracteresValor[posPunto+2]++;
-		}
-		cadenaValor = String.copyValueOf(caracteresValor);
-		double resultado = Double.parseDouble(cadenaValor);
-		return resultado;
+		return Math.round(valor*100d)/100d;
 	}
 	public static boolean esNumero(char c) {
 		return Character.isDigit(c);
